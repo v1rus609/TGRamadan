@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TG Iftar Time</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="index.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+    <div class="navbar">
+        <div class="logo">TG Iftar Time</div>
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    </div>
+
+    <div class="menu" id="menu">
+        <a href="#" onclick="showHome()">Home</a>
+        <a href="#" onclick="showFull()">Full View</a>
+    </div>
+
+    <!-- ================= MAIN CONTAINER ================= -->
+    <div class="container">
+
+        <!-- ================= HOME SECTION ================= -->
+        <div id="homeSection">
+            <div class="card">
+                <h2>Today's Time</h2>
+
+                <!-- Date -->
+                <div class="time-block" id="dateBlock">
+                    <div class="label">
+                        <i class="fa-solid fa-calendar-days icon"></i>
+                        Date
+                    </div>
+                    <div class="value highlight" id="todayDate"></div>
+                </div>
+
+<!-- IFTAR -->
+<div class="time-block" id="iftarBlock">
+    <div class="label">
+        <i class="fa-solid fa-moon icon"></i>
+        Iftar
+    </div>
+    <div class="value highlight">
+        <span id="todayIftar"></span> PM
+    </div>
+    <div class="countdown" id="iftarCountdown"></div>
+</div>
+
+<!-- SEHRI -->
+<div class="time-block" id="sehriBlock">
+    <div class="label">
+        <i class="fa-solid fa-sun icon"></i>
+        Sehri
+    </div>
+    <div class="value highlight">
+        <span id="todaySehri"></span> AM
+    </div>
+    <div class="countdown" id="sehriCountdown"></div>
+</div>
+
+            </div>
+        </div>
+
+        <!-- ================= FULL VIEW SECTION ================= -->
+        <div id="fullSection" class="hidden">
+            <h2>Full Ramadan Schedule</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Roza</th>
+                        <th>Date</th>
+                        <th>Iftar (PM)</th>
+                        <th>Sehri (AM)</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody"></tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <!-- JS -->
+    <script src="index.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,236 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    min-height: 100vh;
+    color: #ffffff;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.menu-icon {
+    font-size: 26px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.menu-icon:hover {
+    transform: scale(1.1);
+}
+
+/* ================= DROPDOWN ================= */
+
+.menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 75px;
+    right: 40px;
+    background: rgba(0,0,0,0.85);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+	z-index: 1;
+}
+
+.menu a {
+    padding: 15px 30px;
+    text-decoration: none;
+    color: white;
+    transition: 0.3s;
+}
+
+.menu a:hover {
+    background: #00e5c4;
+    color: #000;
+}
+
+/* ================= MAIN LAYOUT ================= */
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+    flex-direction: column;
+}
+
+/* ================= CARD ================= */
+
+.card {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(25px);
+    border-radius: 30px;
+    padding: 50px 40px;
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.45);
+    transition: 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+}
+
+/* ================= TIME BLOCK ================= */
+
+.time-block {
+    margin: 30px 0;
+    text-align: center;
+    transition: 0.4s ease;
+}
+
+.label {
+    font-size: 18px;
+    font-weight: 400;
+    opacity: 0.85;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.value {
+    font-size: 34px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+/* Divider */
+.time-block:not(:last-child) {
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    padding-bottom: 25px;
+}
+
+/* ================= ICON COLORS ================= */
+
+.icon {
+    font-size: 20px;
+}
+
+.fa-moon {
+    color: #ffd369;
+}
+
+.fa-sun {
+    color: #ff9f43;
+}
+
+.fa-calendar-days {
+    color: #00ffd5;
+}
+
+/* ================= ACTIVE / INACTIVE ================= */
+
+.inactive {
+    opacity: 0.2;
+    filter: grayscale(1);
+    transform: scale(0.98);
+}
+
+.time-block:not(.inactive) {
+    transform: scale(1);
+}
+
+/* Optional subtle glow for active block */
+.time-block:not(.inactive) .value {
+    text-shadow: 0 0 15px rgba(0,255,213,0.4);
+}
+
+/* ================= TABLE ================= */
+
+#fullSection {
+    width: 100%;
+    max-width: 900px;
+}
+
+#fullSection h2 {
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: 500;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 20px;
+    overflow: hidden;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+}
+
+th, td {
+    padding: 16px;
+    text-align: center;
+}
+
+th {
+    background: #00e5c4;
+    color: black;
+    font-weight: 600;
+}
+
+tr {
+    transition: 0.3s;
+}
+
+tr:nth-child(even) {
+    background: rgba(255,255,255,0.04);
+}
+
+tr:hover {
+    background: rgba(0, 255, 213, 0.18);
+}
+
+/* ================= UTILITIES ================= */
+
+.hidden {
+    display: none;
+}
+.countdown {
+    margin-top: 8px;
+    font-size: 14px;
+    opacity: 0.8;
+    letter-spacing: 1px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width: 600px) {
+
+    .navbar {
+        padding: 15px 20px;
+    }
+
+    .card {
+        padding: 35px 25px;
+    }
+
+    .value {
+        font-size: 26px;
+    }
+
+}
