@@ -5,18 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TG Iftar Time</title>
 
-    <!-- CSS -->
     <link rel="stylesheet" href="index.css">
-
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
-    <!-- Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
-    <!-- ================= NAVBAR ================= -->
+    <!-- STARTUP MODAL -->
+    <div class="modal-overlay" id="adhanModal">
+        <div class="modal-box">
+            <div class="modal-icon">
+                <i class="fa-solid fa-volume-high"></i>
+            </div>
+            <h2>Enable Adhan</h2>
+            <p>
+                Turn On Adhan To Hear Adhan At Iftar Time.
+            </p>
+
+            <div class="modal-actions">
+                <button class="modal-btn primary" onclick="enableAdhanFromModal()">
+                    Enable Adhan
+                </button>
+                <button class="modal-btn secondary" onclick="closeAdhanModal()">
+                    Not Now
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- NAVBAR -->
     <div class="navbar">
         <div class="logo">TG Iftar Time</div>
         <div class="menu-icon" onclick="toggleMenu()">☰</div>
@@ -27,15 +44,13 @@
         <a href="#" onclick="showFull()">Full View</a>
     </div>
 
-    <!-- ================= MAIN CONTAINER ================= -->
     <div class="container">
 
-        <!-- ================= HOME SECTION ================= -->
+        <!-- HOME -->
         <div id="homeSection">
             <div class="card">
                 <h2>Today's Time</h2>
 
-                <!-- Date -->
                 <div class="time-block" id="dateBlock">
                     <div class="label">
                         <i class="fa-solid fa-calendar-days icon"></i>
@@ -44,34 +59,53 @@
                     <div class="value highlight" id="todayDate"></div>
                 </div>
 
-<!-- IFTAR -->
-<div class="time-block" id="iftarBlock">
-    <div class="label">
-        <i class="fa-solid fa-moon icon"></i>
-        Iftar
-    </div>
-    <div class="value highlight">
-        <span id="todayIftar"></span> PM
-    </div>
-    <div class="countdown" id="iftarCountdown"></div>
-</div>
+                <div class="time-block" id="iftarBlock">
+                    <div class="label">
+                        <i class="fa-solid fa-moon icon"></i>
+                        Iftar
+                    </div>
+                    <div class="value highlight">
+                        <span id="todayIftar"></span> PM
+                    </div>
+                    <div class="countdown" id="iftarCountdown"></div>
+                </div>
 
-<!-- SEHRI -->
-<div class="time-block" id="sehriBlock">
-    <div class="label">
-        <i class="fa-solid fa-sun icon"></i>
-        Sehri
-    </div>
-    <div class="value highlight">
-        <span id="todaySehri"></span> AM
-    </div>
-    <div class="countdown" id="sehriCountdown"></div>
-</div>
+                <div class="time-block" id="sehriBlock">
+                    <div class="label">
+                        <i class="fa-solid fa-sun icon"></i>
+                        Sehri
+                    </div>
+                    <div class="value highlight">
+                        <span id="todaySehri"></span> AM
+                    </div>
+                    <div class="countdown" id="sehriCountdown"></div>
+                </div>
 
+                <!-- ADHAN CONTROL -->
+                <div class="time-block" id="adhanControlBlock">
+                    <div class="label">
+                        <i class="fa-solid fa-bell icon"></i>
+                        Adhan Alert
+                    </div>
+
+                    <div class="adhan-controls">
+                        <button id="enableAdhanBtn" class="adhan-btn" onclick="enableAdhan()">
+                            <i class="fa-solid fa-volume-high"></i>
+                            <span>Enable</span>
+                        </button>
+
+                        <button id="muteToggleBtn" class="mute-btn" onclick="toggleMute()" disabled>
+                            <i class="fa-solid fa-volume-xmark"></i>
+                            <span>Sound Off</span>
+                        </button>
+                    </div>
+
+                    <div class="countdown" id="adhanStatus">Adhan Disabled</div>
+                </div>
             </div>
         </div>
 
-        <!-- ================= FULL VIEW SECTION ================= -->
+        <!-- FULL VIEW -->
         <div id="fullSection" class="hidden">
             <h2>Full Ramadan Schedule</h2>
             <table>
@@ -86,11 +120,14 @@
                 <tbody id="tableBody"></tbody>
             </table>
         </div>
-
     </div>
 
-    <!-- JS -->
-    <script src="index.js"></script>
+    <!-- AUDIO -->
+    <audio id="adhanAudio" preload="auto">
+        <source src="adhan.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
 
+    <script src="index.js"></script>
 </body>
 </html>
